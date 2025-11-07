@@ -30,7 +30,7 @@ Vagrant.configure("2") do |config|
         vb.memory = 2048 # Adjust as needed
         vb.cpus = 4      # Adjust as needed
       end
-      worker.vm.provision "shell", path: "scripts/common-containerd.sh""
+      worker.vm.provision "shell", path: "scripts/common-containerd.sh"
       #worker.vm.provision "shell", path: "scripts/worker.sh"
     end
   end
