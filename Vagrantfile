@@ -17,8 +17,8 @@ Vagrant.configure("2") do |config|
       vb.memory = 4006 # Adjust as needed
       vb.cpus = 4      # Adjust as needed
     end
-    master.vm.provision "shell", path: "scripts/common.sh"
-    master.vm.provision "shell", path: "scripts/master.sh"
+    master.vm.provision "shell", path: "scripts/common-containerd.sh"
+    #master.vm.provision "shell", path: "scripts/master.sh"
   end
 
   # Worker Nodes
@@ -28,10 +28,10 @@ Vagrant.configure("2") do |config|
       worker.vm.network "private_network", ip: "#{IP_BASE}#{10 + i}"
       worker.vm.provider "virtualbox" do |vb|
         vb.memory = 2048 # Adjust as needed
-        vb.cpus = 2      # Adjust as needed
+        vb.cpus = 4      # Adjust as needed
       end
-      worker.vm.provision "shell", path: "scripts/common.sh"
-      worker.vm.provision "shell", path: "scripts/worker.sh"
+      worker.vm.provision "shell", path: "scripts/common-containerd.sh""
+      #worker.vm.provision "shell", path: "scripts/worker.sh"
     end
   end
 end
