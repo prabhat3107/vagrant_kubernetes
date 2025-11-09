@@ -44,7 +44,7 @@ sudo systemctl status containerd
 
 
 #kubernetes version
-K8S_VER="v1.32"
+K8S_VER="v1.34"
 # Install Kubernetes components
 sudo curl -fsSL https://pkgs.k8s.io/core:/stable:/${K8S_VER}/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg
 
