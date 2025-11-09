@@ -2,6 +2,10 @@
 # Initialize Kubernetes master
 sudo kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.56.10
 
+while [ ! -f /etc/kubernetes/admin.conf ]; do
+  sleep 5
+done
+
 # Configure kubectl for vagrant user
 mkdir -p $HOME/.kube
 sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
