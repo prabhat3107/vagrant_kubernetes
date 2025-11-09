@@ -18,7 +18,8 @@ Vagrant.configure("2") do |config|
       vb.cpus = 4      # Adjust as needed
     end
     master.vm.provision "shell", path: "scripts/common-containerd.sh"
-    #master.vm.provision "shell", path: "scripts/master.sh"
+    master.vm.provision "shell", path: "scripts/hostsfile_update.sh"
+    master.vm.provision "shell", path: "scripts/master.sh"
   end
 
   # Worker Nodes
@@ -31,7 +32,8 @@ Vagrant.configure("2") do |config|
         vb.cpus = 4      # Adjust as needed
       end
       worker.vm.provision "shell", path: "scripts/common-containerd.sh"
-      #worker.vm.provision "shell", path: "scripts/worker.sh"
+      worker.vm.provision "shell", path: "scripts/hostsfile_update.sh"
+      worker.vm.provision "shell", path: "scripts/worker.sh"
     end
   end
 end
